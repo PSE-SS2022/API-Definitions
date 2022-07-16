@@ -202,13 +202,13 @@ PUBLIC, FRIENDS, PRIVATE
     "algorithm": "SIMPLE",
     "duration": 0,
     "startDate": 0, // unix time seconds, only when already planned
-    "questionnaire": [ // only when already planned, role > MEMBER
+    "questionnaire": [
       {
         "question": "Frage?",
         "answers": [
           {
             "answer": "Antwort",
-            "users": [
+            "users": [ // only when already planned, role > MEMBER
               {
                 "id": "UUID",
               }
