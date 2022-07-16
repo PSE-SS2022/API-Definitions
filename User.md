@@ -127,7 +127,7 @@ FRIENDS, BLOCKED, NOT_FRIENDS
 
 ### Accept/Decline
 - path: `/userRelations/friendRequests/<id>`
-  - id: `User ID`
+  - id: `FriendRequest ID`
 - Request Body
   ```JSON
   {
