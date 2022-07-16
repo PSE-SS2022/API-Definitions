@@ -154,11 +154,11 @@ PUBLIC, FRIENDS, PRIVATE
   ```
 
 ## Report Event
-- path: `/event/report`
+- path: `/event/<id>/report`
+  - id: `Event ID`
 - Request Body
   ```JSON
   {
-    "to": "UUID",
     "reason": "Lorem ipsum dolor sid"
   }
   ```
@@ -168,12 +168,11 @@ PUBLIC, FRIENDS, PRIVATE
   ```
 
 ## Get Details of a Event
-- path: `/event/detail/`
+- path: `/event/<id>`
+  - id: `Event id`
 - Request Body
   ```JSON
-  {
-    "for": "UUID" // Event UUID
-  }
+  {}
   ```
 - Response Body
   ```JSON
@@ -223,7 +222,8 @@ PUBLIC, FRIENDS, PRIVATE
   ```
 
 ## Sign up for a Event
-- path: `/event/signup/`
+- path: `/event/<id>/signup/`
+  - id: `Event ID`
 - Request Body
   ```JSON
   {
@@ -248,12 +248,11 @@ PUBLIC, FRIENDS, PRIVATE
   ```
 
 ## Sign out of a Event
-- path: `/event/signout/`
+- path: `/event/<id>/signout`
+  - id: `Event ID`
 - Request Body
   ```JSON
-  {
-    "from": "UUID"
-  }
+  {}
   ```
 - Response Body
   ```JSON
@@ -298,7 +297,8 @@ PUBLIC, FRIENDS, PRIVATE
   ```
 
 ## Edit Event
-- path: `/event`
+- path: `/event/<id>`
+  - id: `Event ID`
 - method: PUT
 - Request Body
   ```JSON
@@ -318,12 +318,12 @@ PUBLIC, FRIENDS, PRIVATE
   ```
 
 ## Delete Event
-- path: `/event`
+- path: `/event/<id>`
+  - id: `Event ID`
 - method: DELETE
 - Request Body
   ```JSON
-  {
-    "id": "UUID"
+  {}
   ```
 - Response Body
   ```JSON

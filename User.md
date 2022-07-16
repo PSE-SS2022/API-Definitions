@@ -126,11 +126,11 @@ FRIENDS, BLOCKED, NOT_FRIENDS
   ```
 
 ### Accept/Decline
-- path: `/userRelations/answerFriendRequest`
+- path: `/userRelations/friendRequests/<id>`
+  - id: `User ID`
 - Request Body
   ```JSON
   {
-    "id": "UUID",
     "answer": true | false
   }
   ```
@@ -140,12 +140,11 @@ FRIENDS, BLOCKED, NOT_FRIENDS
   ```
 
 ## Block User
-- path: `/userRelations/block`
+- path: `/userRelations/<id>/block`
+  - id: `User ID`
 - Request Body
   ```JSON
-  {
-    "id": "UUID"
-  }
+  {}
   ```
 - Response Body
   ```JSON
