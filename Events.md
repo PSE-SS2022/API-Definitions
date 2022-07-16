@@ -346,11 +346,10 @@ PUBLIC, FRIENDS, PRIVATE
   ```
 
 ## Change User Role in Event
-- path: `/event/role`
+- path: `/event/<id>/role`
 - Request Body
   ```JSON
   {
-    "id": "UUID",
     "userID": "UUID",
     "role": "HELPER"
   }
