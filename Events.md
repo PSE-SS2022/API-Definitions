@@ -227,7 +227,6 @@ PUBLIC, FRIENDS, PRIVATE
 - Request Body
   ```JSON
   {
-    "to": "UUID", // Event UUID
     "timeSlots": [
       {
         "startTime": 0, // unix time seconds
