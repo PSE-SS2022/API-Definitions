@@ -1,155 +1,365 @@
 # Events Definitions
+- Request Header
+  ```
+  Authorization: Bearer <jwt-token>
+  ```
+
+## Error
+```JSON
+{
+  "message": "String"
+}
+```
+
+## Categories
+```
+SPORTS, FESTIVAL, STUDY, READING, EATING, SOCIAL
+```
 
 ## Get Planned Events
-- Request Header
-  ```
-
-  ```
+- path: `/event/planned`
 - Request Body
   ```JSON
-
+  {}
   ```
 - Response Body
   ```JSON
-
+  {
+    [
+      {
+        "id": "UUID",
+        "title": "Event title",
+        "duration": 60, // in minutes
+        "startDate": 0, // unix time in seconds,
+        "visibility": "PUBLIC",
+        "numParticipants": 0,
+        "maxParticipants": 0,
+        "creator": {
+          "id": "UUID",
+          "displayName": "FirstName LastName#UID"
+        }
+      },
+      ...
+    ]
+  }
   ```
+
+## Visibility
+```
+PUBLIC, FRIENDS, PRIVATE
+```
 
 ## Get Feed for User
-- Request Header
-  ```
-
-  ```
+- path: `/event/feed`
+- Query Params
+  - category: String
 - Request Body
   ```JSON
-
+  {}
   ```
 - Response Body
   ```JSON
-
+  {
+    [
+      {
+        "id": "UUID",
+        "title": "Event title",
+        "description": "Lorem ipsum dolor sid...",
+        "visibility": "PUBLIC",
+        "numParticipants": 0,
+        "maxParticipants": 0,
+        "timeSlots": [
+          {
+            "startTime": 0, // unix time seconds
+            "endTime": 0 // unix time seconds
+          }
+        ]
+        "creator": {
+          "id": "UUID",
+          "displayName": "FirstName LastName#UID"
+        }
+      },
+      ...
+    ]
+  }
   ```
 
 ## Get Events of Current User
-- Request Header
-  ```
-
-  ```
+- path: `/user/events`
 - Request Body
   ```JSON
-
+  {}
   ```
 - Response Body
   ```JSON
-
+  {
+    [
+      {
+        "id": "UUID",
+        "title": "Event title",
+        "description": "Lorem ipsum dolor sid...",
+        "visibility": "PUBLIC",
+        "numParticipants": 0,
+        "maxParticipants": 0,
+        "timeSlots": [
+          {
+            "startTime": 0, // unix time seconds
+            "endTime": 0 // unix time seconds
+          }
+        ]
+        "creator": {
+          "id": "UUID",
+          "displayName": "FirstName LastName#UID"
+        }
+      },
+      ...
+    ]
+  }
   ```
 
 ## Search for Events
-- Request Header
-  ```
-
-  ```
+- path: `/event`
+- Query Params
+  - name: String
+  - category: String
 - Request Body
   ```JSON
-
+  {}
   ```
 - Response Body
   ```JSON
-
+  {
+    [
+      {
+        "id": "UUID",
+        "title": "Event title",
+        "description": "Lorem ipsum dolor sid...",
+        "visibility": "PUBLIC",
+        "numParticipants": 0,
+        "maxParticipants": 0,
+        "timeSlots": [
+          {
+            "startTime": 0, // unix time seconds
+            "endTime": 0 // unix time seconds
+          }
+        ]
+        "creator": {
+          "id": "UUID",
+          "displayName": "FirstName LastName#UID"
+        }
+      },
+      ...
+    ]
+  }
   ```
 
 ## Report Event
-- Request Header
-  ```
-
-  ```
+- path: `/event/report`
 - Request Body
   ```JSON
-
+  {
+    "to": "UUID",
+    "reason": "Lorem ipsum dolor sid"
+  }
   ```
 - Response Body
   ```JSON
-
+  {}
   ```
 
 ## Get Details of a Event
-- Request Header
-  ```
-
-  ```
+- path: `/event/detail/`
 - Request Body
   ```JSON
-
+  {
+    "for": "UUID" // Event UUID
+  }
   ```
 - Response Body
   ```JSON
-
+  {
+    "id": "UUID",
+    "title": "Event title",
+    "description": "Lorem ipsum dolor sid...",
+    "visibility": "PUBLIC",
+    "participants": [
+      {
+        "id": "UUID",
+        "displayName": "see other occurrences"
+      }
+    ],
+    "maxParticipants": 0,
+    "timeSlots": [
+      {
+        "startTime": 0, // unix time seconds
+        "endTime": 0 // unix time seconds
+      }
+    ]
+    "creator": {
+      "id": "UUID",
+      "displayName": "FirstName LastName#UID"
+    },
+    "algorithm": "SIMPLE",
+    "duration": 0,
+    "startDate": 0, // unix time seconds, only when already planned
+    "questionnaire": [ // only when already planned, role > MEMBER
+      {
+        "question": "Frage?",
+        "answers": [
+          {
+            "answer": "Antwort",
+            "users": [
+              {
+                "id": "UUID",
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
   ```
 
 ## Sign up for a Event
-- Request Header
-  ```
-
-  ```
+- path: `/event/signup/`
 - Request Body
   ```JSON
-
+  {
+    "to": "UUID", // Event UUID
+    "timeSlots": [
+      {
+        "startTime": 0, // unix time seconds
+        "endTime": 0 // unix time seconds
+      }
+    ],
+    // Multiple questions, 1 Answer per Question
+    "questionnaire": { // Map Question: Answer
+      "0": 0,
+      "1": 2,
+      ...
+    }
+  }
   ```
 - Response Body
   ```JSON
-
+  {}
   ```
 
 ## Sign out of a Event
-- Request Header
-  ```
-
-  ```
+- path: `/event/signout/`
 - Request Body
   ```JSON
-
+  {
+    "from": "UUID"
+  }
   ```
 - Response Body
   ```JSON
-
+  {}
   ```
 
 ## Create Event
-- Request Header
-  ```
-
-  ```
+- path: `/event`
+- method: POST
 - Request Body
   ```JSON
-
+  {
+    "title": "Title", 
+    "timeSlots": [
+      {
+        "startTime": 0, // unix time seconds
+        "endTime": 0 // unix time seconds
+      }
+    ], 
+    "duration": 0, // in minutes
+    "visibility": "PUBLIC", 
+    "algorithm": "SIMPLE",
+    "deadline": 0, // unix time seconds
+    "description": "Lorem ipsum dolor sid...", // optional
+    "maxNumParticipants": 0, // optional
+    "category": "SEE_ABOVE", // optional
+    "questionnaire": [ // optional
+      {
+        "question": "Who you gonna call?",
+        "answers": [
+          "Ghostbusters",
+          "Talip",
+          "Abdullah"
+        ]
+      }
+    ]
+  }
   ```
 - Response Body
   ```JSON
+  {}
+  ```
 
+## Edit Event
+- path: `/event`
+- method: PUT
+- Request Body
+  ```JSON
+  { // Sent the ones you want to update
+    "id": "UUID",
+    "title": "Title", 
+    "visibility": "PUBLIC", 
+    "description": "Lorem ipsum dolor sid...", // optional
+    "maxNumParticipants": 0, // optional
+  }
+  ```
+- Response Body
+  ```JSON
+  {
+    "See detail"...
+  }
+  ```
+
+## Delete Event
+- path: `/event`
+- method: DELETE
+- Request Body
+  ```JSON
+  {
+    "id": "UUID"
+  ```
+- Response Body
+  ```JSON
+  {}
   ```
 
 ## Set Events as synched
-- Request Header
-  ```
-
-  ```
+- path: `/event/synced/`
 - Request Body
   ```JSON
-
+  [
+    "UUID",
+    "UUID",
+    "UUID",
+    ...
+  ]
   ```
 - Response Body
   ```JSON
-
+  {}
   ```
 
 ## Change User Role in Event
-- Request Header
-  ```
-
-  ```
+- path: `/event/role`
 - Request Body
   ```JSON
-
+  {
+    "id": "UUID",
+    "userID": "UUID",
+    "role": "HELPER"
+  }
   ```
 - Response Body
   ```JSON
-
+  {}
   ```
+
+## EventRole
+```
+OWNER, ORGANIZER, HELPER, ATTENDANT
+```
