@@ -204,9 +204,11 @@ PUBLIC, FRIENDS, PRIVATE
     "startDate": 0, // unix time seconds, only when already planned
     "questionnaire": [
       {
+        "id": 0,
         "question": "Frage?",
         "answers": [
           {
+            "id": 0
             "answer": "Antwort",
             "users": [ // only when already planned, role > MEMBER
               {
