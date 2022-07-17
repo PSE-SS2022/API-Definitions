@@ -302,7 +302,6 @@ PUBLIC, FRIENDS, PRIVATE
 - Request Body
   ```JSON
   { // Sent the ones you want to update
-    "id": "UUID",
     "title": "Title", 
     "visibility": "PUBLIC", 
     "description": "Lorem ipsum dolor sid...", // optional
