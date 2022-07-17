@@ -34,6 +34,7 @@ SPORTS, FESTIVAL, STUDY, READING, EATING, SOCIAL
         "visibility": "PUBLIC",
         "numParticipants": 0,
         "maxParticipants": 0,
+        "synced": false
         "creator": {
           "id": "UUID",
           "displayName": "FirstName LastName#UID"
