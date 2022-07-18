@@ -34,7 +34,8 @@ SPORTS, FESTIVAL, STUDY, READING, EATING, SOCIAL
         "visibility": "PUBLIC",
         "numParticipants": 0,
         "maxParticipants": 0,
-        "synced": false
+        "synced": false,
+        "plannedAt": 0, // unix time seconds, when event was planned, only returned when planned
         "creator": {
           "id": "UUID",
           "displayName": "FirstName LastName#UID"
@@ -201,6 +202,7 @@ PUBLIC, FRIENDS, PRIVATE
     },
     "algorithm": "SIMPLE",
     "duration": 0,
+    "plannedAt": 0, // unix time seconds, when event was planned, only returned when planned
     "startDate": 0, // unix time seconds, only when already planned
     "questionnaire": [
       {
