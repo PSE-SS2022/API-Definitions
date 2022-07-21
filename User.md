@@ -91,7 +91,8 @@ FRIENDS, BLOCKED, NOT_FRIENDS
 ## Friend Requests
 
 ### Send
-- path: `/userRelations/sendFriendRequest` 
+- path: `/userRelations/sendFriendRequest`
+- method: `POST`
 - Request Body
   ```JSON
   {
@@ -128,6 +129,7 @@ FRIENDS, BLOCKED, NOT_FRIENDS
 ### Accept/Decline
 - path: `/userRelations/friendRequests/<id>`
   - id: `FriendRequest ID`
+- method: `POST`
 - Request Body
   ```JSON
   {
