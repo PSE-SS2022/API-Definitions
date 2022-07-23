@@ -118,6 +118,39 @@ PUBLIC, FRIENDS, PRIVATE
     ]
   }
   ```
+  
+## Get Events for which current User is signed up
+- path: `/user/events/signedUp`
+- Request Body
+  ```JSON
+  {}
+  ```
+- Response Body
+  ```JSON
+  {
+    [
+      {
+        "id": "UUID",
+        "title": "Event title",
+        "description": "Lorem ipsum dolor sid...",
+        "visibility": "PUBLIC",
+        "numParticipants": 0,
+        "maxParticipants": 0,
+        "timeSlots": [
+          {
+            "startTime": 0, // unix time seconds
+            "endTime": 0 // unix time seconds
+          }
+        ]
+        "creator": {
+          "id": "UUID",
+          "displayName": "FirstName LastName#UID"
+        }
+      },
+      ...
+    ]
+  }
+  ```
 
 ## Search for Events
 - path: `/event`
