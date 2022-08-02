@@ -154,7 +154,8 @@ FRIENDS, BLOCKED, NOT_FRIENDS
   ```
 
 ## Report User
-- path: `/userRelations/report`
+- path: `/userRelations/<id>/report`
+  - id: `User UUID`
 - Request Body
   ```JSON
   {
