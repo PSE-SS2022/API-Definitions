@@ -159,7 +159,6 @@ FRIENDS, BLOCKED, NOT_FRIENDS
 - Request Body
   ```JSON
   {
-    "id": "UUID",
     "reason": "Lorem ipsum dolor me sid...."
   }
   ```
