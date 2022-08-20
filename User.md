@@ -64,7 +64,7 @@
   ```
 ### Relations
 ```
-FRIENDS, BLOCKED, NOT_FRIENDS
+FRIENDS, BLOCKED, NOT_FRIENDS, FRIEND_REQUEST_SENT, FRIEND_REQUEST_RECEIVED
 ```
 
 ## Get List of Friends/Blocked from Current User
